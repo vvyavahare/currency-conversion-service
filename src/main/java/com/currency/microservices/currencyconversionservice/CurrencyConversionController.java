@@ -67,6 +67,7 @@ public class CurrencyConversionController {
 
     try {
       kafkaTemplate.send(currencyConversionTopic, mapper.writeValueAsString(currencyConversion));
+      log.info("Sent data to kafka successfully...");
     } catch (Exception e) {
       log.error("Error in sending data to kafka.", e);
     }
